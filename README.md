@@ -39,11 +39,9 @@ Fiora provides two ways to install
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Please make sure to update tests as appropriate
 
-<<<<<<< HEAD
-1. Fork it (<>)
-=======
+
+
 1. Fork it (<https://1484430913.github.io/exp-im/>)
->>>>>>> 7fb7d00a6904c233b235a35ca85abe4908f56f76
 2. Create your feature branch (`git checkout -b some-feature`)
 3. Commit your changes (`git commit -am 'Add some some features'`)
 4. Push to the branch (`git push origin some-feature`)
