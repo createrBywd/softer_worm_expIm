@@ -18,11 +18,11 @@ Exp-IM is an interesting open source chat application. It is developed based on 
 
 ## Screenshot
 
-<img src="https://github.com/1484430913/exp-im/blob/master/src/assets/img/p_1.png" alt="Phone"style="max-height:567px" />
-<img src="https://github.com/1484430913/exp-im/blob/master/src/assets/img/p_2.png" alt="Phone"style="max-height:567px" />
-<img src="https://github.com/1484430913/exp-im/blob/master/src/assets/img/p_3.png" alt="Phone"style="max-height:567px" />
-<img src="https://github.com/1484430913/exp-im/blob/master/src/assets/img/p_4.png" alt="Phone"style="max-height:567px" />
-<img src="https://github.com/1484430913/exp-im/blob/master/src/assets/img/p_5.png" alt="Phone"style="max-height:567px" />
+<img src="https://github.com/1484430913/exp-im/blob/master/src/assets/img/p_1.jpg" alt="Phone"style="max-height:567px" />
+<img src="https://github.com/1484430913/exp-im/blob/master/src/assets/img/p_2.jpg" alt="Phone"style="max-height:567px" />
+<img src="https://github.com/1484430913/exp-im/blob/master/src/assets/img/p_3.jpg" alt="Phone"style="max-height:567px" />
+<img src="https://github.com/1484430913/exp-im/blob/master/src/assets/img/p_4.jpg" alt="Phone"style="max-height:567px" />
+<img src="https://github.com/1484430913/exp-im/blob/master/src/assets/img/p_5.jpg" alt="Phone"style="max-height:567px" />
 
 ## Run
 
