@@ -30,7 +30,7 @@ export default class moreOptions extends Component {
       imageResult['assets'] &&
         imageResult?.assets?.length &&
         imageResult['assets'].map(
-          ({ uri, type, fileSize }) => {
+          ({ uri, type }) => {
             this.uploadPicture(uri, type)
           }
         )
