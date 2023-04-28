@@ -41,7 +41,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 
 
-1. Fork it (<https://1484430913.github.io/exp-im/>)
+1. Fork it (<https://github.com/1484430913/exp-im/fork/>)
 2. Create your feature branch (`git checkout -b some-feature`)
 3. Commit your changes (`git commit -am 'Add some some features'`)
 4. Push to the branch (`git push origin some-feature`)

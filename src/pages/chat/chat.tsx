@@ -1,13 +1,13 @@
-import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-const Stack = createNativeStackNavigator()
-import ChatList from '../../components/ChatList'
-import Chats from '../../components/Chats'
+import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ChatList from '../../components/ChatList';
+import Chats from '../../components/Chats';
+const Stack = createNativeStackNavigator();
 
-const Chat = ({ socket, store, route }: any) => {
-  const { useMobxStore } = store()
-  const { setRouteName } = useMobxStore
-  setRouteName(route['name'])
+const Chat = ({ socket, store, route }: any): React.ReactElement => {
+  const { useMobxStore } = store();
+  const { setRouteName } = useMobxStore;
+  setRouteName(route.name);
   return (
     <Stack.Navigator initialRouteName="chat_list">
       <Stack.Screen
@@ -16,13 +16,7 @@ const Chat = ({ socket, store, route }: any) => {
           headerShown: false,
         }}
       >
-        {(props) => (
-          <ChatList
-            {...props}
-            socket={socket}
-            store={store}
-          />
-        )}
+        {(props) => <ChatList {...props} socket={socket} store={store} />}
       </Stack.Screen>
       <Stack.Screen
         name="chats"
@@ -40,11 +34,9 @@ const Chat = ({ socket, store, route }: any) => {
           headerTitle: '',
         }}
       >
-        {(props) => (
-          <Chats {...props} socket={socket} store={store} />
-        )}
+        {(props) => <Chats {...props} socket={socket} store={store} />}
       </Stack.Screen>
     </Stack.Navigator>
-  )
-}
-export default Chat
+  );
+};
+export default Chat;

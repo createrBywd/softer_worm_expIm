@@ -1,9 +1,5 @@
-import React from 'react'
-import {
-  FormControl,
-  Input,
-  WarningOutlineIcon,
-} from 'native-base'
+import React from 'react';
+import { FormControl, Input, WarningOutlineIcon } from 'native-base';
 export default function DefaultForm({
   label,
   type = 'text',
@@ -20,9 +16,7 @@ export default function DefaultForm({
       isInvalid={errors[label]}
       key={key}
     >
-      <FormControl.Label bg="#111118">
-        {label}
-      </FormControl.Label>
+      <FormControl.Label bg="#111118">{label}</FormControl.Label>
       <Input
         type={type}
         defaultValue=""
@@ -46,5 +40,5 @@ export default function DefaultForm({
         {errors[label]}
       </FormControl.ErrorMessage>
     </FormControl>
-  )
+  );
 }

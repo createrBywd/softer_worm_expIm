@@ -1,18 +1,14 @@
-import React, { useEffect } from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
-import Login from './src/pages/login/login'
-import Reg from './src/pages/register/reg'
-import Page from './src/pages/Page/Page'
-import useStore from './src/reducer/index'
-import {
-  NativeBaseProvider,
-  extendTheme,
-} from 'native-base'
+import React, { useEffect } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Login from './src/pages/login/login';
+import Reg from './src/pages/register/reg';
+import Page from './src/pages/Page/Page';
+import useStore from './src/reducer/index';
+import { NativeBaseProvider, extendTheme } from 'native-base';
 
-
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
 const them = extendTheme({
   components: {
     Box: {
@@ -24,9 +20,9 @@ const them = extendTheme({
       },
     },
   },
-})
+});
 export default function App() {
-  useEffect(() => { }, [])
+  useEffect(() => {}, []);
   return (
     <NativeBaseProvider theme={them}>
       <SafeAreaProvider>
@@ -52,13 +48,11 @@ export default function App() {
                 headerShown: false,
               }}
             >
-              {(props) => (
-                <Page {...props} store={useStore} />
-              )}
+              {(props) => <Page {...props} store={useStore} />}
             </Stack.Screen>
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>
     </NativeBaseProvider>
-  )
+  );
 }

@@ -1,10 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
-import {
-  StyleSheet,
-  TouchableOpacity,
-  Animated,
-  Easing,
-} from 'react-native'
+import React, { useState, useEffect, useRef } from 'react';
+import { StyleSheet, TouchableOpacity, Animated, Easing } from 'react-native';
 import {
   Box,
   Input,
@@ -14,17 +9,17 @@ import {
   Avatar,
   Spacer,
   Text,
-} from 'native-base'
-import Ionicons from 'react-native-vector-icons/Ionicons'
-import { getUserList } from '../api/login'
-type UserList<T> = { [K in keyof T]?: T[K] }
+} from 'native-base';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { getUserList } from '../api/login';
+type UserList<T> = { [K in keyof T]?: T[K] };
 
 const Home = ({ store, navigation }: any) => {
-  const [place, setPlace] = useState('search')
-  const { useMobxStore } = store()
-  const { userInfo } = useMobxStore
-  const [userList, setUserList] = useState([])
-  const fadeIn = useRef(new Animated.Value(0)).current
+  const [place, setPlace] = useState('search');
+  const { useMobxStore } = store();
+  const { userInfo } = useMobxStore;
+  const [userList, setUserList] = useState([]);
+  const fadeIn = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     Animated.timing(fadeIn, {
@@ -32,13 +27,11 @@ const Home = ({ store, navigation }: any) => {
       useNativeDriver: true,
       duration: 500,
       easing: Easing.ease,
-    }).start()
-    getUserList({ email: userInfo['email'] }).then(
-      ({ data }) => {
-        setUserList(data)
-      }
-    )
-  }, [])
+    }).start();
+    getUserList({ email: userInfo.email }).then(({ data }) => {
+      setUserList(data);
+    });
+  }, []);
 
   return (
     <Box flex="1" bg="#ffffff" paddingX="5">
@@ -78,8 +71,12 @@ const Home = ({ store, navigation }: any) => {
           height="45"
           mt="5"
           fontWeight="500"
-          onFocus={() => setPlace('')}
-          onBlur={() => setPlace('search')}
+          onFocus={() => {
+            setPlace('');
+          }}
+          onBlur={() => {
+            setPlace('search');
+          }}
           InputLeftElement={
             <Ionicons
               name="search"
@@ -112,9 +109,7 @@ const Home = ({ store, navigation }: any) => {
                 }}
               >
                 <TouchableOpacity
-                  onPress={() =>
-                    navigation.navigate('chats', item)
-                  }
+                  onPress={() => navigation.navigate('chats', item)}
                 >
                   <Box
                     borderBottomWidth="1"
@@ -126,10 +121,7 @@ const Home = ({ store, navigation }: any) => {
                     pr={['0', '5']}
                     py="4"
                   >
-                    <HStack
-                      space={[2, 3]}
-                      justifyContent="space-between"
-                    >
+                    <HStack space={[2, 3]} justifyContent="space-between">
                       <Avatar
                         size="48px"
                         source={{
@@ -178,8 +170,8 @@ const Home = ({ store, navigation }: any) => {
         </Box>
       </Box>
     </Box>
-  )
-}
+  );
+};
 const styles = StyleSheet.create({
   shadowBox: {
     width: 100,
@@ -189,5 +181,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-})
-export default Home
+});
+export default Home;

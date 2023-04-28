@@ -1,8 +1,8 @@
-import { StyleSheet, Text, Pressable } from 'react-native'
-import React, { Component } from 'react'
-import emojiJson from '../assets/json/emoji.json'
-import { FlashList } from '@shopify/flash-list'
-import { VStack } from 'native-base'
+import { StyleSheet, Text, Pressable } from 'react-native';
+import React, { Component } from 'react';
+import emojiJson from '../assets/json/emoji.json';
+import { FlashList } from '@shopify/flash-list';
+import { VStack } from 'native-base';
 export class EmojiItem extends Component {
   render(): React.ReactNode {
     return (
@@ -10,40 +10,30 @@ export class EmojiItem extends Component {
         {Object.keys(this.props.jsonData).map((em) => (
           <Pressable
             key={em}
-            onPressIn={() =>
-              this.props.onPress(emojiJson[em])
-            }
+            onPressIn={() => this.props.onPress(emojiJson[em])}
           >
-            <Text style={styles.fontStyle}>
-              {emojiJson[em]}
-            </Text>
+            <Text style={styles.fontStyle}>{emojiJson[em]}</Text>
           </Pressable>
         ))}
       </VStack>
-    )
+    );
   }
 }
 export class EmojiSelector extends Component {
   renderItem = ({ item }: any) => {
-    return (
-      <EmojiItem
-        jsonData={item}
-        onPress={this.props.selectEmoji}
-      />
-    )
-  }
+    return <EmojiItem jsonData={item} onPress={this.props.selectEmoji} />;
+  };
+
   render() {
-    const colData = Object.keys(emojiJson)
-    const result = []
+    const colData = Object.keys(emojiJson);
+    const result = [];
     for (let i = 0; i < colData.length; i += 6) {
       result.push(
-        colData
-          .slice(i, i + 6)
-          .reduce((acc: any, key: any) => {
-            acc[key] = emojiJson[key]
-            return acc
-          }, {})
-      )
+        colData.slice(i, i + 6).reduce((acc: any, key: any) => {
+          acc[key] = emojiJson[key];
+          return acc;
+        }, {}),
+      );
     }
     return (
       <FlashList
@@ -52,7 +42,7 @@ export class EmojiSelector extends Component {
         keyExtractor={(v, i) => i + ''}
         estimatedItemSize={24}
       ></FlashList>
-    )
+    );
   }
 }
 const styles = StyleSheet.create({
@@ -64,5 +54,5 @@ const styles = StyleSheet.create({
   fontStyle: {
     fontSize: 18,
   },
-})
-export default EmojiSelector
+});
+export default EmojiSelector;

@@ -1,13 +1,11 @@
-import React from 'react'
-import { StyleSheet } from 'react-native'
-import { Box } from 'native-base'
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { Box } from 'native-base';
 
 const Home = ({ socket }: any) => {
-  return (
-    <Box flex="1" bg="#ffffff" position="relative"></Box>
-  )
-}
+  return <Box flex="1" bg="#ffffff" position="relative"></Box>;
+};
 
-export default Home
+export default Home;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

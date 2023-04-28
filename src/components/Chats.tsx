@@ -34,6 +34,7 @@ class ChatItem extends Component {
       isPlayIng: false,
     };
   }
+
   loopAudio = async ({ file }: any) => {
     this.setState(
       {
@@ -78,6 +79,7 @@ class ChatItem extends Component {
       },
     );
   };
+
   render() {
     const { item, userInfo }: any = this.props;
     const isAudio = item.fileType === 'audio';
@@ -86,7 +88,7 @@ class ChatItem extends Component {
     const scales = [0.4, 0.6, 1];
     return (
       <VStack p="5">
-        {item.sender != userInfo['_id'] ? (
+        {item.sender != userInfo._id ? (
           <HStack justifyContent="flex-start" alignItems="flex-start">
             <Image
               contentFit="contain"
@@ -113,7 +115,9 @@ class ChatItem extends Component {
             >
               {item.file && isAudio && !isImage ? (
                 <TouchableOpacity
-                  onPress={() => this.loopAudio(item)}
+                  onPress={async () => {
+                    await this.loopAudio(item);
+                  }}
                   style={{
                     flexDirection: 'row',
                     alignItems: 'center',
@@ -176,7 +180,9 @@ class ChatItem extends Component {
             >
               {item.file && isAudio && !isImage ? (
                 <TouchableOpacity
-                  onPress={() => this.loopAudio(item)}
+                  onPress={async () => {
+                    await this.loopAudio(item);
+                  }}
                   style={{
                     flexDirection: 'row',
                     alignItems: 'center',
@@ -292,8 +298,9 @@ export class Chats extends PureComponent {
     this.listRef = React.createRef();
     this.audioAnimate = new Animated.Value(0);
     navigation.setOptions({ headerTitle: fullName || '' });
-    setRouteName(route['name']);
+    setRouteName(route.name);
   }
+
   _scrollBottom = () => {
     const refs = this.listRef.current;
     requestAnimationFrame(() =>
@@ -302,15 +309,16 @@ export class Chats extends PureComponent {
       }),
     );
   };
+
   sendMessage = async () => {
     if (this.state.isFoucs) {
       const { route, socket }: any = this.props;
       const { _id } = route.params;
       // const transformText = convertEmojiToUnicode(this.state.text)
       const text_context = {
-        sender: this.state.userInfo['_id'],
-        fullName: this.state.userInfo['fullName'],
-        avatarUrl: this.state.userInfo['avatarUrl'],
+        sender: this.state.userInfo._id,
+        fullName: this.state.userInfo.fullName,
+        avatarUrl: this.state.userInfo.avatarUrl,
         toId: _id,
         msg: this.state.text,
         timestamp: Date.now(),
@@ -329,12 +337,13 @@ export class Chats extends PureComponent {
       });
     }
   };
+
   getHistoryList = async () => {
     const { route }: any = this.props;
     const { _id } = route.params;
     try {
       const { data, total } = await getMsgList({
-        sender: this.state.userInfo['_id'],
+        sender: this.state.userInfo._id,
         toId: _id,
         ...this.state.params,
       });
@@ -351,6 +360,7 @@ export class Chats extends PureComponent {
       console.error(error);
     }
   };
+
   onScroll = (e: any) => {
     const {
       contentOffset: { y },
@@ -376,6 +386,7 @@ export class Chats extends PureComponent {
       );
     }
   };
+
   handleReceiveMsg = (context: any) => {
     this.setState(
       (prevState: any) => ({
@@ -386,11 +397,13 @@ export class Chats extends PureComponent {
       },
     );
   };
+
   onChangeText = (e: any) => {
     this.setState({
       text: e,
     });
   };
+
   recordAd = async () => {
     try {
       console.log('Requesting permissions..');
@@ -423,6 +436,7 @@ export class Chats extends PureComponent {
       console.error('Failed to start recording', err);
     }
   };
+
   updateWaveform = async (status: any) => {
     const meter = status.metering;
     const height = meter ? Math.floor(((160 - Math.abs(meter)) / 160) * 10) : 0;
@@ -448,6 +462,7 @@ export class Chats extends PureComponent {
       },
     );
   };
+
   stopRecordAd = async () => {
     try {
       const status = await this.state.recording.stopAndUnloadAsync();
@@ -473,6 +488,7 @@ export class Chats extends PureComponent {
       console.log(error);
     }
   };
+
   uploadPicture = async (uri, type) => {
     this.transformer({
       file: uri,
@@ -481,14 +497,15 @@ export class Chats extends PureComponent {
     });
     this._scrollBottom();
   };
+
   transformer = async (other_params: any) => {
     const { route }: any = this.props;
     const { _id } = route.params;
     const params = Object.assign(
       {
-        sender: this.state.userInfo['_id'],
-        fullName: this.state.userInfo['fullName'],
-        avatarUrl: this.state.userInfo['avatarUrl'],
+        sender: this.state.userInfo._id,
+        fullName: this.state.userInfo.fullName,
+        avatarUrl: this.state.userInfo.avatarUrl,
         toId: _id,
         timestamp: Date.now(),
       },
@@ -499,11 +516,13 @@ export class Chats extends PureComponent {
     const { socket }: any = this.props;
     socket.emit('privatemessage', Context); // 此处等待文件上传至aws云并获取到音频地址后再将文件地址上传至socket，所以会有延时
   };
+
   selectEmoji = (emo: any) => {
     this.setState({
       text: this.state.text + emo,
     });
   };
+
   checkEmoji = () => {
     Keyboard.dismiss();
     this.setState({
@@ -518,14 +537,17 @@ export class Chats extends PureComponent {
       easing: Easing.linear,
     }).start();
   };
+
   checkKeybord = () => {
     this.setState({
       showInput: !this.state.showInput,
     });
   };
+
   renderItem = ({ item }: any) => {
     return <ChatItem item={item} userInfo={this.state.userInfo} />;
   };
+
   componentDidMount() {
     const { socket }: any = this.props;
     this.getHistoryList();
@@ -542,11 +564,13 @@ export class Chats extends PureComponent {
     });
     socket.on('receiveMsg', this.handleReceiveMsg);
   }
+
   componentWillUnmount() {
     const { socket }: any = this.props;
     this.keyboardDidShowListener.remove();
     socket.off('receiveMsg', this.handleReceiveMsg);
   }
+
   render() {
     const { allText, text } = this.state;
     const bottom = this.audioAnimate.interpolate({
@@ -682,7 +706,9 @@ export class Chats extends PureComponent {
           </Box>
           {this.state.showWave ? (
             <EmojiSelector
-              selectEmoji={(em: any) => this.selectEmoji(em)}
+              selectEmoji={(em: any) => {
+                this.selectEmoji(em);
+              }}
             ></EmojiSelector>
           ) : (
             <></>

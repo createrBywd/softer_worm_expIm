@@ -1,28 +1,23 @@
-import React, { ReactElement } from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import HomeScreen from '../home/home'
-import ChatScreen from '../../pages/chat/chat'
-import UserScreen from '../user/user'
-import { Pressable } from 'react-native'
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import React, { type ReactElement } from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import HomeScreen from '../home/home';
+import ChatScreen from '../../pages/chat/chat';
+import UserScreen from '../user/user';
+import { Pressable } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 // import Feather from 'react-native-vector-icons/Feather'
 // import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 // import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
-import { Shadow } from 'react-native-shadow-2'
-import { Box } from 'native-base'
-import { io } from 'socket.io-client'
-const socket = io(`http://172.31.48.16:8081`)
+import { Shadow } from 'react-native-shadow-2';
+import { Box } from 'native-base';
+import { io } from 'socket.io-client';
+const socket = io(`http://172.31.48.16:8081`);
 
-const Tab = createBottomTabNavigator()
-function MyTabBar({
-  state,
-  navigation,
-  store,
-  route,
-}: any) {
-  const { useMobxStore } = store()
-  const { userInfo, routeName } = useMobxStore
-  socket.emit('setRoom', userInfo)
+const Tab = createBottomTabNavigator();
+function MyTabBar({ state, navigation, store, route }: any) {
+  const { useMobxStore } = store();
+  const { userInfo, routeName } = useMobxStore;
+  socket.emit('setRoom', userInfo);
   return routeName == 'chats' ? (
     <></>
   ) : (
@@ -36,7 +31,7 @@ function MyTabBar({
       }}
     >
       {state.routes.map((route: any, index: any) => {
-        const isFocused = state.index === index
+        const isFocused = state.index === index;
         const tabbarObj: any = {
           home: {
             ttf: Ionicons,
@@ -53,42 +48,38 @@ function MyTabBar({
             icon: 'md-person-outline',
             text: 'Profile',
           },
-        }
+        };
         const tabbarComponent = (Config: any) => {
-          const routeName: any = route.name
-          const FontComponent = tabbarObj[routeName]?.ttf
-          const { icon } = tabbarObj[routeName]
+          const routeName: any = route.name;
+          const FontComponent = tabbarObj[routeName]?.ttf;
+          const { icon } = tabbarObj[routeName];
           return (
             <FontComponent
-              name={
-                isFocused
-                  ? icon.replace('-outline', '')
-                  : icon
-              }
+              name={isFocused ? icon.replace('-outline', '') : icon}
               {...Config}
             ></FontComponent>
-          )
-        }
+          );
+        };
         const onPress = () => {
           const event = navigation.emit({
             type: 'tabPress',
             target: route.key,
             canPreventDefault: true,
-          })
+          });
           if (!isFocused && !event.defaultPrevented) {
             // The `merge: true` option makes sure that the params inside the tab screen are preserved
             navigation.navigate({
               name: route.name,
               merge: true,
-            })
+            });
           }
-        }
+        };
         const onLongPress = () => {
           navigation.emit({
             type: 'tabLongPress',
             target: route.key,
-          })
-        }
+          });
+        };
 
         return (
           <Pressable
@@ -120,10 +111,10 @@ function MyTabBar({
               </Box>
             }
           </Pressable>
-        )
+        );
       })}
     </Shadow>
-  )
+  );
 }
 const Page = ({ store }: any) => {
   return (
@@ -139,13 +130,7 @@ const Page = ({ store }: any) => {
           headerShown: false,
         }}
       >
-        {(props) => (
-          <HomeScreen
-            {...props}
-            socket={socket}
-            store={store}
-          />
-        )}
+        {(props) => <HomeScreen {...props} socket={socket} store={store} />}
       </Tab.Screen>
       <Tab.Screen
         name="chat"
@@ -153,13 +138,7 @@ const Page = ({ store }: any) => {
           headerShown: false,
         }}
       >
-        {(props) => (
-          <ChatScreen
-            {...props}
-            socket={socket}
-            store={store}
-          />
-        )}
+        {(props) => <ChatScreen {...props} socket={socket} store={store} />}
       </Tab.Screen>
       <Tab.Screen
         name="user"
@@ -167,16 +146,10 @@ const Page = ({ store }: any) => {
           headerShown: false,
         }}
       >
-        {(props) => (
-          <UserScreen
-            {...props}
-            socket={socket}
-            store={store}
-          />
-        )}
+        {(props) => <UserScreen {...props} socket={socket} store={store} />}
       </Tab.Screen>
     </Tab.Navigator>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

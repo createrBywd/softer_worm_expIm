@@ -15,6 +15,7 @@
     "strict": false,
     "target": "esnext",
     "resolveJsonModule":true,
+    "strictNullChecks":true,
     "paths": {
       "~/*": [
         "src/*"

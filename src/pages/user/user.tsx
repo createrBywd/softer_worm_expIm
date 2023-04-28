@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { Shadow } from 'react-native-shadow-2'
-import { Box } from 'native-base'
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { Shadow } from 'react-native-shadow-2';
+import { Box } from 'native-base';
 const User = ({ socket }: any) => {
   return (
     <Box flex="1" bg="#ffffff" position="relative">
@@ -22,9 +22,7 @@ const User = ({ socket }: any) => {
         }}
       ></Shadow>
     </Box>
-  )
-}
+  );
+};
 
-export default User
-
-const styles = StyleSheet.create({})
+export default User;

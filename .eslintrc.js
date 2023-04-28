@@ -13,6 +13,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
+  ignorePatterns: ['node_modules/', 'android/'],
   plugins: ['react'],
   rules: {},
 };
