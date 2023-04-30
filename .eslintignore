@@ -3,4 +3,5 @@ android/
 public/
 build/
 docs/
+README.md
 *.d.ts

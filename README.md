@@ -19,12 +19,12 @@ Exp-IM is an interesting open source chat application. It is developed based on 
 ## Screenshot
 
 
-<img src="https://github.com/createrBywd/softer_worm_expIm/raw/master/src/assets/img/p_1jpg"alt="Phone"height="667"style="max-height:667px" />
-<img src="https://github.com/createrBywd/softer_worm_expIm/master/src/assets/img/p_2.jpg" alt="Phone" height="667" style="max-height:667px" />
-<img src="https://github.com/createrBywd/softer_worm_expIm/master/src/assets/img/p_3.jpg" alt="Phone" height="667" style="max-height:667px" />
-<img src="https://github.com/createrBywd/softer_worm_expIm/master/src/assets/img/p_4.jpg" alt="Phone" height="667" style="max-height:667px" />
-<img src="https://github.com/createrBywd/softer_worm_expIm/master/src/assets/img/p_5.jpg" alt="Phone" height="667" style="max-height:667px" />
-<img src="https://github.com/createrBywd/softer_worm_expIm/master/src/assets/img/p_6.jpg" alt="Phone" height="667" style="max-height:667px" />
+<img src="https://github.com/createrBywd/softer_worm_expIm/raw/master/packages/assets/img/p_1jpg"  alt="Phone" height="667" style="max-height:667px" >
+<img src="https://github.com/createrBywd/softer_worm_expIm/raw/master/packages/assets/img/p_2.jpg" alt="Phone" height="667" style="max-height:667px" >
+<img src="https://github.com/createrBywd/softer_worm_expIm/raw/master/packages/assets/img/p_3.jpg" alt="Phone" height="667" style="max-height:667px" >
+<img src="https://github.com/createrBywd/softer_worm_expIm/raw/master/packages/assets/img/p_4.jpg" alt="Phone" height="667" style="max-height:667px" >
+<img src="https://github.com/createrBywd/softer_worm_expIm/raw/master/packages/assets/img/p_5.jpg" alt="Phone" height="667" style="max-height:667px" >
+<img src="https://github.com/createrBywd/softer_worm_expIm/raw/master/packages/assets/img/p_6.jpg" alt="Phone" height="667" style="max-height:667px" >
 
 ## Run
 
