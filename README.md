@@ -19,12 +19,12 @@ Exp-IM is an interesting open source chat application. It is developed based on 
 ## Screenshot
 
 
-<img src="https://github.com/1484430913/exp-im/raw/master/src/assets/img/p_1.jpg" alt="Phone" height="667" style="max-height:667px" />
-<img src="https://github.com/1484430913/exp-im/raw/master/src/assets/img/p_2.jpg" alt="Phone" height="667" style="max-height:667px" />
-<img src="https://github.com/1484430913/exp-im/raw/master/src/assets/img/p_3.jpg" alt="Phone" height="667" style="max-height:667px" />
-<img src="https://github.com/1484430913/exp-im/raw/master/src/assets/img/p_4.jpg" alt="Phone" height="667" style="max-height:667px" />
-<img src="https://github.com/1484430913/exp-im/raw/master/src/assets/img/p_5.jpg" alt="Phone" height="667" style="max-height:667px" />
-<img src="https://github.com/1484430913/exp-im/raw/master/src/assets/img/p_6.jpg" alt="Phone" height="667" style="max-height:667px" />
+<img src="https://github.com/createrBywd/softer_worm_expIm/raw/master/src/assets/img/p_1jpg"alt="Phone"height="667"style="max-height:667px" />
+<img src="https://github.com/createrBywd/softer_worm_expIm/master/src/assets/img/p_2.jpg" alt="Phone" height="667" style="max-height:667px" />
+<img src="https://github.com/createrBywd/softer_worm_expIm/master/src/assets/img/p_3.jpg" alt="Phone" height="667" style="max-height:667px" />
+<img src="https://github.com/createrBywd/softer_worm_expIm/master/src/assets/img/p_4.jpg" alt="Phone" height="667" style="max-height:667px" />
+<img src="https://github.com/createrBywd/softer_worm_expIm/master/src/assets/img/p_5.jpg" alt="Phone" height="667" style="max-height:667px" />
+<img src="https://github.com/createrBywd/softer_worm_expIm/master/src/assets/img/p_6.jpg" alt="Phone" height="667" style="max-height:667px" />
 
 ## Run
 
@@ -43,7 +43,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 1. Fork it (<https://github.com/1484430913/exp-im/fork/>)
 2. Create your feature branch (`git checkout -b some-feature`)
-3. Commit your changes (`git commit -am 'Add some some features'`)
+3. Commit your changes (`git commit -am 'Add some some  '`)
 4. Push to the branch (`git push origin some-feature`)
 5. Create a new Pull Request
 
