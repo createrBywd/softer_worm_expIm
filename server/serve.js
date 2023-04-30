@@ -5,7 +5,7 @@ const { Server } = require('socket.io');
 const io = new Server(server, {
   cors: { origin: 'http://localhost:19000' },
 });
-const getFileUrl = require('./utils/putAwsFile');
+// const getFileUrl = require('./utils/putAwsFile');
 const cors = require('cors');
 // 引入中间件
 const bodyParser = require('body-parser');
@@ -16,7 +16,7 @@ const userRouter = require('./router/route');
 app.use(cors());
 app.use('/api', userRouter);
 const hashName = {};
-const onlineUser = [];
+let onlineUser = [];
 io.on('connection', async (socket) => {
   // let user = await User.find().exec()
   //  创建房间储存上线的用户

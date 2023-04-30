@@ -60,7 +60,7 @@ router.post('/register', async (req, res) => {
       e_mail: email,
     }).exec();
     if (code === veri_code) {
-      const user = await User.insertMany({
+      await User.insertMany({
         email,
         password,
         messages: [],

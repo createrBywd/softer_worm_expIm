@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import Login from './src/pages/login/login';
-import Reg from './src/pages/register/reg';
-import Page from './src/pages/Page/Page';
-import useStore from './src/reducer/index';
+import Login from './packages/pages/login/login';
+import Reg from './packages/pages/register/reg';
+import Page from './packages/pages/Page/Page';
+import useStore from './packages/reducer/index';
 import { NativeBaseProvider, extendTheme } from 'native-base';
 
 const Stack = createNativeStackNavigator();

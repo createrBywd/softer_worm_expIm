@@ -1,7 +1,7 @@
 import React, { type ReactElement } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../home/home';
-import ChatScreen from '../../pages/chat/chat';
+import ChatScreen from '../chat/chat';
 import UserScreen from '../user/user';
 import { Pressable } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
